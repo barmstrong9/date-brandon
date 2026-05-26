@@ -1,0 +1,273 @@
+:root {
+    /* Color Palette */
+    --bg-deep: #0f172a; /* Deep Navy */
+    --bg-card: #1e293b; /* Slightly lighter card bg */
+    --text-main: #f1f5f9; /* Off-white */
+    --text-muted: #94a3b8; /* Gray-blue */
+    
+    --primary: #ff6b6b; /* Vibrant Coral */
+    --primary-hover: #ff8787;
+    --secondary: #4ecdc4; /* Electric Teal */
+    --accent: #ffe66d; /* Soft Yellow */
+    --royal: #7048e8; /* Vibrant Purple */
+
+    --border: #334155;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* Main Profile Container */
+.profile-container {
+    width: 100%;
+    max-width: 480px; /* Standard phone/app width */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 100px; /* Space for sticky footer */
+}
+
+/* Generic Card Styles */
+.card {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.card-padding {
+    padding: 20px;
+}
+
+/* 1. Hero Photo & Header */
+.hero-card {
+    position: relative;
+}
+
+.hero-photo {
+    width: 100%;
+    height: 500px; /* Tall hero shot */
+    object-fit: cover;
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0) 100%);
+    padding: 30px 20px 20px 20px;
+}
+
+.hero-name-age {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.hero-location {
+    color: var(--secondary);
+    font-weight: 600;
+    margin: 4px 0 0 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 2. Vitals / Basic Info */
+.vitals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.vital-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.vital-icon {
+    color: var(--primary);
+    width: 18px;
+    text-align: center;
+}
+
+/* 3. Photo Gallery Grids */
+.photo-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 8px;
+}
+
+.gallery-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+/* 4. Prompts (Hinge Style Q&A) */
+.prompt-card {
+    border-left: 4px solid var(--royal);
+}
+
+.prompt-question {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.prompt-answer {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0;
+}
+
+/* 5. Sticky Decision Footer */
+.decision-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.btn-group {
+    display: flex;
+    gap: 16px;
+    width: 90%;
+    max-width: 480px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 16px;
+    border-radius: 30px; /* Pill shape */
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-yes {
+    background-color: var(--primary);
+    color: #fff;
+    box-shadow: 0 4px 14px 0 rgba(255, 107, 107, 0.4);
+}
+
+.btn-yes:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-no {
+    background-color: #334155;
+    color: var(--text-muted);
+}
+
+.btn-no:hover {
+    background-color: #475569;
+}
+
+/* Modal Styling Updates */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    z-index: 100;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid var(--royal);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(112, 72, 232, 0.3);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+textarea {
+    width: 100%;
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    margin: 15px 0;
+    min-height: 100px;
+    font-family: inherit;
+    resize: none;
+    box-sizing: border-box;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--secondary);
+}
+
+.submit-btn {
+    background: var(--secondary);
+    color: var(--bg-deep);
+    width: 100%;
+    border: none;
+    padding: 12px;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.alert {
+    background: rgba(78, 205, 196, 0.2);
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    text-align: center;
+    font-weight: 600;
+}

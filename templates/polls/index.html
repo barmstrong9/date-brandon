@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Brandon</title>
+    <!-- Include Inter font for that modern app feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    <div class="profile-container">
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <!-- 1. Hero Card -->
+        <div class="card hero-card">
+            <!-- REPLACE WITH YOUR PHOTO -->
+            <img src="{% static 'polls/images/photo1.jpg' %}" alt="Brandon" class="hero-photo">
+            <div class="hero-overlay">
+                <h1 class="hero-name-age">Brandon, 27</h1>
+                <p class="hero-location">📍 Newcastle upon Tyne, UK</p>
+            </div>
+        </div>
+
+        <!-- 2. Vitals Card -->
+        <div class="card card-padding">
+            <div class="vitals-grid">
+                <div class="vital-item"><span class="vital-icon">📏</span> 6'2"</div>
+                <div class="vital-item"><span class="vital-icon">💼</span> Software Engineer</div>
+                <div class="vital-item"><span class="vital-icon">🚗</span> Cupra Leon Owner</div>
+                <div class="vital-item"><span class="vital-icon">👨🏼‍</span> Ginger w/ Blue Eyes (Premium Build)</div>
+            </div>
+        </div>
+
+        <!-- 3. Prompt 1 -->
+        <div class="card card-padding prompt-card">
+            <p class="prompt-question">My typical Sunday</p>
+            <p class="prompt-answer">Perfecting a reverse-seared steak, producing amateur breakbeats on the sofa, and arguing about 90s football kits on Reddit.</p>
+        </div>
+
+        <!-- 4. Photo Grid -->
+        <div class="card photo-grid-2">
+            <!-- REPLACE WITH YOUR PHOTOS -->
+            <img src="{% static 'polls/images/photo2.jpg' %}" alt="Gallery 1" class="gallery-photo">
+            <img src="{% static 'polls/images/photo3.jpg' %}" alt="Gallery 2" class="gallery-photo">
+        </div>
+
+        <!-- 5. Prompt 2 -->
+        <div class="card card-padding prompt-card" style="border-left-color: var(--secondary);">
+            <p class="prompt-question">I'm weirdly attracted to</p>
+            <p class="prompt-answer">Clean, modular code architecture and people who know that a proper Teesside Parmo requires bechamel, not just mayo.</p>
+        </div>
+
+         <!-- 6. Prompt 3 -->
+        <div class="card card-padding prompt-card" style="border-left-color: var(--primary);">
+            <p class="prompt-question">You should NOT apply if</p>
+            <p class="prompt-answer">You prefer full page reloads over HTMX, or if you think Sunderland is a nice place for a weekend away.</p>
+        </div>
+
+    </div>
+
+    <!-- Sticky Decision Footer -->
+    <div class="decision-footer">
+        <div class="btn-group">
+            <button id="btn-no" class="action-btn btn-no">✕ Pass</button>
+            <button id="btn-yes" class="action-btn btn-yes">♥ Date</button>
+        </div>
+    </div>
+
+    <!-- Hidden Form & Modal (Backend integration remains the same) -->
+    <div class="modal" id="feedbackModal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Final Thoughts?</h3>
+            <form method="POST" action="{% url 'landing_page' %}">
+                {% csrf_token %}
+                <input type="hidden" name="decision" id="decisionInput">
+                <textarea name="feedback" placeholder="Leave an optional roast, critique, or compliment here..."></textarea>
+                <button type="submit" class="submit-btn">Submit Verdict</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
