@@ -23,21 +23,64 @@
         {% endif %}
 
         <!-- 1. Hero Card -->
-        <div class="card hero-card">
-            <!-- REPLACE WITH YOUR PHOTO -->
-            <img src="{% static 'polls/images/photo1.jpg' %}" alt="Brandon" class="hero-photo">
-            <div class="hero-overlay">
+         <div class="card card-padding">
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
+                
+                <div class="carousel-track-container">
+                    <ul class="carousel-track" id="carouselTrack">
+                        <li class="carousel-slide">
+                            <img src="{% static 'images/portrait_2.jpg' %}" alt="Gallery 1" class="carousel-image">
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="{% static 'images/portrait_1.jpg' %}" alt="Gallery 2" class="carousel-image">
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="{% static 'images/elvis.jpg' %}" alt="Gallery 3" class="carousel-image">
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="{% static 'images/airplane.jpg' %}" alt="Gallery 4" class="carousel-image">
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="{% static 'images/gorillaz.jpg' %}" alt="Gallery 5" class="carousel-image">
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="{% static 'images/dog_hugs.jpg' %}" alt="Gallery 6" class="carousel-image">
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="{% static 'images/amsterdam_group.jpg' %}" alt="Gallery 7" class="carousel-image">
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="{% static 'images/creamfields.jpg' %}" alt="Gallery 8" class="carousel-image">
+                        </li>
+                    </ul>
+                </div>
+                <div class="hero-overlay">
                 <h1 class="hero-name-age">Brandon, 27</h1>
                 <p class="hero-location">📍 Newcastle upon Tyne, UK</p>
+            </div>
+                
+                <button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
+            </div>
+            
+            <div class="carousel-nav" id="carouselNav">
+                <button class="carousel-indicator current-indicator"></button>
+                <button class="carousel-indicator"></button>
+                <button class="carousel-indicator"></button>
+                <button class="carousel-indicator"></button>
+                <button class="carousel-indicator"></button>
+                <button class="carousel-indicator"></button>
+                <button class="carousel-indicator"></button>
+                <button class="carousel-indicator"></button>
             </div>
         </div>
 
         <!-- 2. Vitals Card -->
         <div class="card card-padding">
             <div class="vitals-grid">
-                <div class="vital-item"><span class="vital-icon">📏</span> 6'2"</div>
+                <div class="vital-item"><span class="vital-icon">📏</span> 6'2" (187cm)</div>
                 <div class="vital-item"><span class="vital-icon">💼</span> Software Engineer</div>
-                <div class="vital-item"><span class="vital-icon">🚗</span> Cupra Leon Owner</div>
+                <div class="vital-item"><span class="vital-icon">🚗</span> Full Driving License & Car</div>
                 <div class="vital-item"><span class="vital-icon">👨🏼‍</span> Ginger w/ Blue Eyes (Premium Build)</div>
             </div>
         </div>
@@ -45,14 +88,7 @@
         <!-- 3. Prompt 1 -->
         <div class="card card-padding prompt-card">
             <p class="prompt-question">My typical Sunday</p>
-            <p class="prompt-answer">Perfecting a reverse-seared steak, producing amateur breakbeats on the sofa, and arguing about 90s football kits on Reddit.</p>
-        </div>
-
-        <!-- 4. Photo Grid -->
-        <div class="card photo-grid-2">
-            <!-- REPLACE WITH YOUR PHOTOS -->
-            <img src="{% static 'polls/images/photo2.jpg' %}" alt="Gallery 1" class="gallery-photo">
-            <img src="{% static 'polls/images/photo3.jpg' %}" alt="Gallery 2" class="gallery-photo">
+            <p class="prompt-answer">Some waffle m8</p>
         </div>
 
         <!-- 5. Prompt 2 -->
@@ -66,7 +102,29 @@
             <p class="prompt-question">You should NOT apply if</p>
             <p class="prompt-answer">You prefer full page reloads over HTMX, or if you think Sunderland is a nice place for a weekend away.</p>
         </div>
-
+        
+        <div class="card card-padding spotify-card">
+            <div class="spotify-header">
+                <h3>On Heavy Rotation</h3>
+            </div>
+            <div class="tracks-container">
+                {% if tracks %}
+                    {% for track in tracks %}
+                        <a href="{{ track.url }}" target="_blank" class="track-item">
+                            {% if track.album_art %}
+                                <img src="{{ track.album_art }}" alt="Album art" class="track-art">
+                            {% endif %}
+                            <div class="track-details">
+                                <p class="track-name">{{ track.name }}</p>
+                                <p class="track-artist">{{ track.artist }}</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                {% else %}
+                    <p>Data stream offline. Just assume it is heavy electronic or alternative indie.</p>
+                {% endif %}
+            </div>
+        </div>
     </div>
 
     <!-- Sticky Decision Footer -->
@@ -90,6 +148,6 @@
         </div>
     </div>
 
-    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'javascript/script.js' %}"></script>
 </body>
 </html>

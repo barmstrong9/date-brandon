@@ -125,7 +125,6 @@ body {
     border: 1px solid var(--border);
 }
 
-/* 4. Prompts (Hinge Style Q&A) */
 .prompt-card {
     border-left: 4px solid var(--royal);
 }
@@ -197,6 +196,8 @@ body {
 .btn-no {
     background-color: #334155;
     color: var(--text-muted);
+    /* Ensure no transitions are fighting your JavaScript placement */
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
 }
 
 .btn-no:hover {
@@ -270,4 +271,145 @@ textarea:focus {
     margin-bottom: 16px;
     text-align: center;
     font-weight: 600;
+}
+
+/* --- Photo Carousel Styles --- */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Adjust this to match your preferred photo height */
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--bg-deep);
+}
+
+.carousel-track-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(15, 23, 42, 0.6);
+    color: var(--text-main);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s, transform 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.carousel-btn:hover {
+    background: var(--primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* Indicator Dots */
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    gap: 10px;
+}
+
+.carousel-indicator {
+    border: none;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--border);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-indicator.current-indicator {
+    background: var(--secondary);
+    transform: scale(1.3);
+}
+
+.spotify-card {
+    border-left: 4px solid #1DB954 !important;
+}
+
+.spotify-header h3 {
+    margin: 0 0 15px 0;
+    color: #1DB954;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tracks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.track-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+    padding: 6px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.track-item:hover {
+    background-color: #2d3748;
+}
+
+.track-art {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.track-name {
+    margin: 0 0 2px 0;
+    font-weight: 600;
+}
+
+.track-artist {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #94a3b8;
 }
