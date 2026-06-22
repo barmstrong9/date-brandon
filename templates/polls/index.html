@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Date Brandon</title>
-    <!-- Include Inter font for that modern app feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -22,10 +21,10 @@
             {% endfor %}
         {% endif %}
 
-        <!-- 1. Hero Card -->
+        <!-- Hero Card -->
          <div class="card card-padding">
             <div class="carousel-container">
-                <button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
+                <button class="carousel-btn prev-btn" id="prevBtn" aria-label="Previous photo">&#10094;</button>
                 
                 <div class="carousel-track-container">
                     <ul class="carousel-track" id="carouselTrack">
@@ -33,25 +32,25 @@
                             <img src="{% static 'images/portrait_2.jpg' %}" alt="Gallery 1" class="carousel-image">
                         </li>
                         <li class="carousel-slide">
-                            <img src="{% static 'images/portrait_1.jpg' %}" alt="Gallery 2" class="carousel-image">
+                            <img src="{% static 'images/portrait_1.jpg' %}" alt="Gallery 2" class="carousel-image" loading="lazy">
                         </li>
                         <li class="carousel-slide">
-                            <img src="{% static 'images/elvis.jpg' %}" alt="Gallery 3" class="carousel-image">
+                            <img src="{% static 'images/elvis.jpg' %}" alt="Gallery 3" class="carousel-image" loading="lazy">
                         </li>
                         <li class="carousel-slide">
-                            <img src="{% static 'images/airplane.jpg' %}" alt="Gallery 4" class="carousel-image">
+                            <img src="{% static 'images/airplane.jpg' %}" alt="Gallery 4" class="carousel-image" loading="lazy">
                         </li>
                         <li class="carousel-slide">
-                            <img src="{% static 'images/gorillaz.jpg' %}" alt="Gallery 5" class="carousel-image">
+                            <img src="{% static 'images/gorillaz.jpg' %}" alt="Gallery 5" class="carousel-image" loading="lazy">
                         </li>
                         <li class="carousel-slide">
-                            <img src="{% static 'images/dog_hugs.jpg' %}" alt="Gallery 6" class="carousel-image">
+                            <img src="{% static 'images/dog_hugs.jpg' %}" alt="Gallery 6" class="carousel-image" loading="lazy">
                         </li>
                         <li class="carousel-slide">
-                            <img src="{% static 'images/amsterdam_group.jpg' %}" alt="Gallery 7" class="carousel-image">
+                            <img src="{% static 'images/amsterdam_group.jpg' %}" alt="Gallery 7" class="carousel-image" loading="lazy">
                         </li>
                         <li class="carousel-slide">
-                            <img src="{% static 'images/creamfields.jpg' %}" alt="Gallery 8" class="carousel-image">
+                            <img src="{% static 'images/creamfields.jpg' %}" alt="Gallery 8" class="carousel-image" loading="lazy">
                         </li>
                     </ul>
                 </div>
@@ -60,7 +59,7 @@
                 <p class="hero-location">📍 Newcastle upon Tyne, UK</p>
             </div>
                 
-                <button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
+                <button class="carousel-btn next-btn" id="nextBtn" aria-label="Next photo">&#10095;</button>
             </div>
             
             <div class="carousel-nav" id="carouselNav">
@@ -75,34 +74,58 @@
             </div>
         </div>
 
-        <!-- 2. Vitals Card -->
+        <!-- Vitals Card -->
         <div class="card card-padding">
             <div class="vitals-grid">
                 <div class="vital-item"><span class="vital-icon">📏</span> 6'2" (187cm)</div>
-                <div class="vital-item"><span class="vital-icon">💼</span> Software Engineer</div>
+                <div class="vital-item"><span class="vital-icon">💼</span> Software Engineer (with a bit too much spare time)</div>
                 <div class="vital-item"><span class="vital-icon">🚗</span> Full Driving License & Car</div>
-                <div class="vital-item"><span class="vital-icon">👨🏼‍</span> Ginger w/ Blue Eyes (Premium Build)</div>
+                <div class="vital-item"><span class="vital-icon">👨🏼‍</span> Ginger Hair, Blue Eyes</div>
             </div>
         </div>
 
-        <!-- 3. Prompt 1 -->
+        <!-- Bio Card -->
+        <div class="card card-padding prompt-card">
+            <p class="prompt-question">About me</p>
+            <p class="prompt-answer">I made this as a joke and like most of my bad ideas, it's possibly gone too far. I'm Brandon, a 27 year old software engineer born & bred in Newcastle.</p>
+            <p class="prompt-answer">Dating is hard so I decided to simplify it by making myself the only available man, and good luck hitting that pass button!</p>
+            <p class="prompt-answer">If building a fully functioning dating site didn't give it away, I'm a bit of a nerd. I've got a Pokémon tattooed on my leg, I have a collection of records that has a bit of everything from Drum & Bass to 70s divorced dad rock.</p>
+            <p class="prompt-answer">I'm also a Newcastle United season ticket holder, a bit of a coffee snob, and I am looking for someone to go halves on the hosting costs for this website or a gig/holiday partner.</p>
+        </div>
+
+        <!-- Sunday Card -->
         <div class="card card-padding prompt-card">
             <p class="prompt-question">My typical Sunday</p>
-            <p class="prompt-answer">Some waffle m8</p>
+            <p class="prompt-answer">If I'm not at the Newcastle match or watching the F1, then I'm usually cooking (I make a great steak & triple cooked chips), or doing a spot of reading. I'm currently reading the Game of Thrones books.</p>
         </div>
 
-        <!-- 5. Prompt 2 -->
+        <!-- Passion Card -->
         <div class="card card-padding prompt-card" style="border-left-color: var(--secondary);">
-            <p class="prompt-question">I'm weirdly attracted to</p>
-            <p class="prompt-answer">Clean, modular code architecture and people who know that a proper Teesside Parmo requires bechamel, not just mayo.</p>
+            <p class="prompt-question">I'm weirdly passionate about...</p>
+            <p class="prompt-answer">Coffee! I love visiting the independent coffee shops in town and grabbing a flat white and a sweet treat.</p>
         </div>
 
-         <!-- 6. Prompt 3 -->
+        <!-- Gig Card -->
         <div class="card card-padding prompt-card" style="border-left-color: var(--primary);">
-            <p class="prompt-question">You should NOT apply if</p>
-            <p class="prompt-answer">You prefer full page reloads over HTMX, or if you think Sunderland is a nice place for a weekend away.</p>
+            <p class="prompt-question">My top 3 gigs are:</p>
+            <ul class="prompt-list">
+                <li>Sam Fender @ St James' Park 2025</li>
+                <li>Chemical Brothers @ Creamfields 2021</li> 
+                <li>David Gilmour @ The Royal Albert Hall 2024</li>
+            </ul>
+        </div>
+
+        <!-- Movie Card -->
+        <div class="card card-padding prompt-card" style="border-left-color: var(--accent);">
+            <p class="prompt-question">My top 3 movies atm are:</p>
+            <ul class="prompt-list">
+                <li>Inception</li>
+                <li>Project Hail Mary</li> 
+                <li>The Lord of the Rings: The Two Towers</li>
+            </ul>
         </div>
         
+        <!-- Spotify Card -->
         <div class="card card-padding spotify-card">
             <div class="spotify-header">
                 <h3>On Heavy Rotation</h3>
@@ -110,7 +133,7 @@
             <div class="tracks-container">
                 {% if tracks %}
                     {% for track in tracks %}
-                        <a href="{{ track.url }}" target="_blank" class="track-item">
+                        <a href="{{ track.url }}" target="_blank" class="track-item" rel="noopener noreferrer">
                             {% if track.album_art %}
                                 <img src="{{ track.album_art }}" alt="Album art" class="track-art">
                             {% endif %}
@@ -127,23 +150,25 @@
         </div>
     </div>
 
-    <!-- Sticky Decision Footer -->
     <div class="decision-footer">
         <div class="btn-group">
             <button id="btn-no" class="action-btn btn-no">✕ Pass</button>
-            <button id="btn-yes" class="action-btn btn-yes">♥ Date</button>
+            <button id="btn-yes" class="action-btn btn-yes">♥ Fine! I'll pay for the hosting</button>
         </div>
     </div>
 
-    <!-- Hidden Form & Modal (Backend integration remains the same) -->
+    <!-- Hidden Form & Modal -->
     <div class="modal" id="feedbackModal">
         <div class="modal-content">
             <h3 id="modalTitle">Final Thoughts?</h3>
             <form method="POST" action="{% url 'landing_page' %}">
                 {% csrf_token %}
                 <input type="hidden" name="decision" id="decisionInput">
+                <input name="ladies_name" placeholder="Your first name">
+                <input name="instagram" placeholder="Instagram"></input>
+                <input name="phone_number" placeholder="Phone Number"></input>
                 <textarea name="feedback" placeholder="Leave an optional roast, critique, or compliment here..."></textarea>
-                <button type="submit" class="submit-btn">Submit Verdict</button>
+                <button type="submit" class="submit-btn">Submit</button>
             </form>
         </div>
     </div>

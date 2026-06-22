@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Core Modal Logic (unchanged) ---
     function openModal(decision) {
         input.value = decision;
-        title.innerText = decision === 'YES' ? "Excellent Choice. Any final words?" : "Wow. Care to explain yourself?";
+        title.innerText = decision === 'YES' ? "Excellent Choice. How can I get in touch with you?" : "Wow. Care to explain yourself?";
         modal.style.display = 'flex';
     }
 

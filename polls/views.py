@@ -35,6 +35,9 @@ class LandingPageView(View):
     def post(self, request, *args, **kwargs):
         decision = request.POST.get('decision')
         feedback = request.POST.get('feedback', '').strip()
+        ladies_name = request.POST.get('ladies_name')
+        instagram = request.POST.get('instagram')
+        phone_number = request.POST.get('phone_number')
         ip = get_client_ip(request)
 
         # Basic validation
@@ -42,6 +45,9 @@ class LandingPageView(View):
             DateDecision.objects.create(
                 decision=decision,
                 feedback=feedback,
+                ladies_name=ladies_name,
+                instagram=instagram,
+                phone_number=phone_number,
                 voter_ip=ip
             )
             messages.success(request, "Your verdict has been recorded into the ether.")
